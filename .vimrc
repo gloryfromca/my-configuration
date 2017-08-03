@@ -2,6 +2,8 @@ set nocompatible
 
 set nu
 
+set backspace=indent,eol,start
+
 syntax enable
 syntax on
 
