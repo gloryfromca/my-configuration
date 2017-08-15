@@ -1,25 +1,90 @@
+{
+"logging": {"version": 1,
+"disable_existing_loggers": true,
 
-{ "version":1, "disable_existing_loggers":false, 
-"formatters":{ "simple":{"format":"%(asctime)s - %(name)s - %(levelname)s - %(message)s" } },
+"formatters": {
+"brief": {
+"class": "logging.Formatter",
+"style": "{",
+"datefmt": "%I:%M:%S",
+"format": "{levelname:8s}; {name:<15s}; {message:s}"
+},
+"simple": {
+"class": "logging.Formatter",
+"style": "{",
+"datefmt": "%I:%M:%S",
+"format": "{levelname:8s}; {asctime:s}; {name:<15s} {lineno:4d}; {message:s}"
+},
 
-"handlers":{ 
+"multi-process": {
+"class": "logging.Formatter",
+"style": "{",
+"datefmt": "%I:%M:%S",
+"format": "{levelname:8s}; {process:5d}; {asctime:s}; {name:<15s} {lineno:4d};
+{message:s}"
+},
 
-"console":{ "class":"logging.StreamHandler", "level":"DEBUG",
-"formatter":"simple", "stream":"ext://sys.stdout" }, 
+"multi-thread": {
+"class": "logging.Formatter",
+"style": "{",
+"datefmt": "%I:%M:%S",
+"format": "{levelname:8s}; {threadName:5d}; {asctime:s}; {name:<15s}
+{lineno:4d}; {message:s}"
+},
 
-"info_file_handler":{"class":"logging.handlers.RotatingFileHandler", "level":"INFO",
-"formatter":"simple", "filename":"info.log", "maxBytes":"10485760",
-"backupCount":20, "encoding":"utf8" }, 
+"verbose": {
+"class": "logging.Formatter",
+"style": "{",
+"datefmt": "%I:%M:%S",
+"format": "{levelname:8s}; {process:5d}; {threadName:8s}; {asctime:s};
+{name:<15s} {lineno:4d}; {message:s}"
+},
 
-"error_file_handler":{
-"class":"logging.handlers.RotatingFileHandler", "level":"ERROR",
-"formatter":"simple", "filename":"errors.log", "maxBytes":10485760,
-"backupCount":20, "encoding":"utf8" } },
-
-"loggers":{
-"my_module":{"level":"ERROR", "handlers":["info_file_handler"], "propagate":"no" } },
-
-"root":{
-"level":"INFO","handlers":["console","info_file_handler","error_file_handler"]
-    }
+"multiline": {
+"class": "logging.Formatter",
+"style": "{",
+"datefmt": "%I:%M:%S",
+"format":
+"{levelname:8s}\n{process:5d}\n{threadName:8s}\n{asctime:s}\n{name:<15s}{lineno:4d}\n{message:s}\n"
 }
+},
+
+"handlers": {
+"console":{
+"level": "DEBUG",
+"class": "logging.StreamHandler",
+"formatter": "multiline",
+"stream" : "ext://sys.stdout"
+},
+
+"file_handler": {
+"level": "INFO",
+"class": "logging.handlers.WatchedFileHandler",
+"formatter": "verbose",
+"filename": "/tmp/file_handler.log",
+"mode": "a",
+"encoding": "utf-8"
+},
+
+"smtp": {
+"level": "ERROR",
+"class": "logging.handlers.SMTPHandler",
+"formatter": "multiline",
+"mailhost": ["127.0.0.1", 25],
+"fromaddr": "sender@example.com",
+"toaddrs": ["recipient@example.com"],
+"subject": "Something went wrong"
+}
+},
+
+"loggers": { },
+
+"root": {
+"handlers": ["console"],
+"level": "DEBUG"
+}
+
+}
+}
+
+
