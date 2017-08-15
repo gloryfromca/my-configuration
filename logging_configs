@@ -1,90 +1,116 @@
 {
-"logging": {"version": 1,
-"disable_existing_loggers": true,
 
-"formatters": {
-"brief": {
-"class": "logging.Formatter",
-"style": "{",
-"datefmt": "%I:%M:%S",
-"format": "{levelname:8s}; {name:<15s}; {message:s}"
-},
-"simple": {
-"class": "logging.Formatter",
-"style": "{",
-"datefmt": "%I:%M:%S",
-"format": "{levelname:8s}; {asctime:s}; {name:<15s} {lineno:4d}; {message:s}"
-},
+  'version': 1,
 
-"multi-process": {
-"class": "logging.Formatter",
-"style": "{",
-"datefmt": "%I:%M:%S",
-"format": "{levelname:8s}; {process:5d}; {asctime:s}; {name:<15s} {lineno:4d};
-{message:s}"
-},
+  'disable_existing_loggers': True,
 
-"multi-thread": {
-"class": "logging.Formatter",
-"style": "{",
-"datefmt": "%I:%M:%S",
-"format": "{levelname:8s}; {threadName:5d}; {asctime:s}; {name:<15s}
-{lineno:4d}; {message:s}"
-},
+  'formatters': {
 
-"verbose": {
-"class": "logging.Formatter",
-"style": "{",
-"datefmt": "%I:%M:%S",
-"format": "{levelname:8s}; {process:5d}; {threadName:8s}; {asctime:s};
-{name:<15s} {lineno:4d}; {message:s}"
-},
+  'verbose': {
 
-"multiline": {
-"class": "logging.Formatter",
-"style": "{",
-"datefmt": "%I:%M:%S",
-"format":
-"{levelname:8s}\n{process:5d}\n{threadName:8s}\n{asctime:s}\n{name:<15s}{lineno:4d}\n{message:s}\n"
+  'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+
+  'datefmt': "%Y-%m-%d %H:%M:%S",
+
+  },
+
+  'simple': {
+
+  'format': '%(levelname)s %(message)s',
+
+  },
+
+  },
+
+  'handlers': {
+
+  'null': {
+
+  'level': 'DEBUG',
+
+  'class': 'logging.NullHandler',
+
+  },
+
+  'console': {
+
+  'level': 'DEBUG',
+
+  'class': 'logging.StreamHandler',
+
+  'formatter': 'verbose',
+
+  },
+
+  'file': {
+
+  'level': 'DEBUG',
+
+  'class': 'cloghandler.ConcurrentRotatingFileHandler',
+
+  'maxBytes': 1024 * 1024 * 10, # 当达到10MB时分割日志
+
+  'backupCount': 10, # 最多保留10份文件
+
+  'delay': True, # If delay is true, file opening is deferred until the first call to emit
+
+  'filename': 'sample-site.log',
+
+  'formatter': 'verbose',
+
+  },
+
+  'file2': {
+
+  'level': 'DEBUG',
+
+  'class': 'cloghandler.ConcurrentRotatingFileHandler',
+
+  'maxBytes': 1024 * 1024 * 10, # 当达到10MB时分割日志
+
+  'backupCount': 10, # 最多保留10份文件
+
+  'delay': True, # If delay is true, file opening is deferred until the first call to emit
+
+  'filename': 'sample-site2.log',
+
+  'formatter': 'verbose',
+
+  },
+
+  },
+
+  'loggers': {
+
+  '': {
+
+  'handlers': ['file'],
+
+  'level': 'INFO',
+
+  },
+
+  'root': {
+
+  'handlers': ['console'],
+
+  'level': 'INFO',
+
+  'propagate': 0,
+
+  },
+
+  'root2': {
+
+  'handlers': ['console'],
+
+  'level': 'INFO',
+
+  'propagate': 1,
+
+  },
+
+  },
+
 }
-},
-
-"handlers": {
-"console":{
-"level": "DEBUG",
-"class": "logging.StreamHandler",
-"formatter": "multiline",
-"stream" : "ext://sys.stdout"
-},
-
-"file_handler": {
-"level": "INFO",
-"class": "logging.handlers.WatchedFileHandler",
-"formatter": "verbose",
-"filename": "/tmp/file_handler.log",
-"mode": "a",
-"encoding": "utf-8"
-},
-
-"smtp": {
-"level": "ERROR",
-"class": "logging.handlers.SMTPHandler",
-"formatter": "multiline",
-"mailhost": ["127.0.0.1", 25],
-"fromaddr": "sender@example.com",
-"toaddrs": ["recipient@example.com"],
-"subject": "Something went wrong"
-}
-},
-
-"loggers": { },
-
-"root": {
-"handlers": ["console"],
-"level": "DEBUG"
-}
-
-}
-}
-
 
