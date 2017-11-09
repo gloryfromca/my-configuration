@@ -26,4 +26,15 @@
           The default is used if replication is not specified in create time.
             </description>
             </property>
+
+<property>
+<name>dfs.namenode.name.dir</name>
+<value>file:/home/zhanghui/spark_hadoop/hadoop/hdfs/namenode</value>
+</property>
+
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>file:/home/zhanghui/spark_hadoop/hadoop/hdfs/datanode</value>
+</property>
+
 </configuration>
