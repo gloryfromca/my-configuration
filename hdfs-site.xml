@@ -37,4 +37,9 @@
 <value>file:/home/zhanghui/spark_hadoop/hadoop/hdfs/datanode</value>
 </property>
 
+<property>
+<name>dfs.namenode.secondary.http-address</name>
+<value>0.0.0.0:9001</value>
+</property>
+
 </configuration>
