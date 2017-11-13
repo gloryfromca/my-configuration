@@ -121,8 +121,9 @@ alias login116='ssh finance_datascience@192.168.1.116'
 alias login62='ssh datascience@192.180.70.62'
 alias web_test='source ~/web_test/bin/activate'
 
-# added by Miniconda2 installer
+#add PATH:1\added by Miniconda2 installer2\added by hadoop
 export PATH="/home/zhanghui/miniconda2/bin:$PATH"
+export PATH=/home/zhanghui/spark_hadoop/hadoop/bin:$PATH
 
 # for java
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
@@ -143,8 +144,10 @@ function snotebook ()
 #Spark path (based on your computer)
 SPARK_PATH=~/spark_hadoop/spark-2.2.0-bin-hadoop2.7
 
-export PYSPARK_DRIVER_PYTHON="jupyter"
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+#2 line below will make spark-submit fail, py.file submited will use
+#driver_python to drive. jupyter can't run py.file submited
+#export PYSPARK_DRIVER_PYTHON="jupyter"
+#export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 # For python 3 users, you have to add the line below or you will get an error 
 export PYSPARK_PYTHON=python3
