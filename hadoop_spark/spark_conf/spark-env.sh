@@ -43,10 +43,10 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 #for spark
 SPARK_MASTER_IP=zh
-SPARK_LOCAL_DIRS=/home/spark_hadoop/spark
+SPARK_LOCAL_DIRS=/home/zh/spark_hadoop/spark
 
 #hadoop conf for spark
-export HADOOP_HOME=/home/spark_hadoop/hadoop
+export HADOOP_HOME=/home/zh/spark_hadoop/hadoop
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
 # Options for the daemons used in the standalone deploy mode
