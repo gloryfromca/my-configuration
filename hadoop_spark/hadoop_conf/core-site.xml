@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,12 +17,12 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<property>
-  <name>mapred.job.tracker</name>
-    <value>localhost:54311</value>
-      <description>The host and port that the MapReduce job tracker runs
-        at.  If "local", then jobs are run in-process as a single map
-          and reduce task.
-            </description>
-            </property>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://zh:9000/</value>
+    </property>
+    <property>
+         <name>hadoop.tmp.dir</name>
+         <value>file:/home/spark_hadoop/hadoop/tmp</value>
+    </property>
 </configuration>
