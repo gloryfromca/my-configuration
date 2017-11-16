@@ -23,6 +23,6 @@
     </property>
     <property>
          <name>hadoop.tmp.dir</name>
-         <value>file:/home/spark_hadoop/hadoop/tmp</value>
+         <value>file:/home/zh/spark_hadoop/hadoop/tmp</value>
     </property>
 </configuration>

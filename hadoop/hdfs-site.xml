@@ -24,11 +24,11 @@
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
-        <value>file:/home/zh/hadoop/dfs/name</value>
+        <value>file:/home/zh/spark_hadoop/hadoop/dfs/name</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>file:/home/zh/hadoop/dfs/data</value>
+        <value>file:/home/zh/spark_hadoop/hadoop/dfs/data</value>
     </property>
     <property>
         <name>dfs.replication</name>
