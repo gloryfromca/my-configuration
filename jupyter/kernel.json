@@ -1,5 +1,5 @@
  {
- "display_name": "pySpark (Spark_zh)",
+ "display_name": "pySpark (Spark zh)",
   "language": "python3",
   "argv": [
    "/usr/bin/python3",
@@ -11,10 +11,14 @@
  "env": {
          "CAPTURE_STANDARD_OUT": "true",
          "CAPTURE_STANDARD_ERR": "true",
-         "SEND_EMPTY_OUTPUT": "false",
+
+	"HADOOP_HOME":"/home/zh/spark_hadoop/hadoop",
+	"HADOOP_CONF_DIR":"/home/zh/spark_hadoop/hadoop/etc/hadoop",	
+
          "SPARK_HOME": "/home/zh/spark_hadoop/spark",
+
 	"PYSPARK_PYTHON":"/usr/bin/python3",
-	"PYTHONSTARTUP":"/home/zh/spark_hadoop/spark/python/pyspark/shell.py",
+	"PYTHONPATH": "/home/zh/spark_hadoop/spark/python/:/home/zh/spark_hadoop/spark/python/lib/py4j-0.10.4-src.zip",
 	"PYSPARK_SUBMIT_ARGS": "--master yarn --deploy-mode client pyspark-shell"
      }
  }
