@@ -48,4 +48,14 @@
        <name>yarn.resourcemanager.webapp.address</name>
        <value>zh:8088</value>
    </property>
+
+   <property>
+       <name>yarn.nodemanager.pmem-check-enabled</name>
+       <value>false</value>
+   </property>
+
+   <property>
+      <name>yarn.nodemanager.vmem-check-enabled</name>
+      <value>false</value>
+   </property>
 </configuration>
