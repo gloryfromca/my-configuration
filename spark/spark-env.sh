@@ -64,6 +64,9 @@ export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 # - SPARK_DAEMON_JAVA_OPTS, to set config properties for all daemons (e.g. "-Dx=y")
 # - SPARK_PUBLIC_DNS, to set the public dns name of the master or workers
 
+#for spark history server (not necessary)
+export SPARK_HISTORY_OPTS="-Dspark.history.ui.port=7777 -Dspark.history.retainedApplications=5 -Dspark.history.fs.logDirectory=hdfs://zh:9000/app_history_log"
+
 # Generic options for the daemons used in the standalone deploy mode
 # - SPARK_CONF_DIR      Alternate conf dir. (Default: ${SPARK_HOME}/conf)
 # - SPARK_LOG_DIR       Where log files are stored.  (Default: ${SPARK_HOME}/logs)
