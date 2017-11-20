@@ -49,6 +49,9 @@ SPARK_LOCAL_DIRS=/home/zh/spark_hadoop/spark
 export HADOOP_HOME=/home/zh/spark_hadoop/hadoop
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
+#for spark graphframe
+export PYTHONPATH=$PYTHONPATH:/home/zh/.ivy2/jars:.
+
 # Options for the daemons used in the standalone deploy mode
 # - SPARK_MASTER_HOST, to bind the master to a different IP address or hostname
 # - SPARK_MASTER_PORT / SPARK_MASTER_WEBUI_PORT, to use non-default ports for the master
