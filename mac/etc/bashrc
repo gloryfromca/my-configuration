@@ -1,0 +1,17 @@
+# System-wide .bashrc file for interactive bash(1) shells.
+if [ -z "$PS1" ]; then
+   return
+fi
+
+PS1='\h:\W \u\$ '
+# Make bash check its window size after a process completes
+shopt -s checkwinsize
+
+[ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"
+
+# my alias
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias py36='source /Users/zhanghui/py36/bin/activate'
+alias py27='source /Users/zhanghui/py27/bin/activate'
