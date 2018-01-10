@@ -22,7 +22,6 @@
 # remote nodes.
 
 # The java implementation to use.
-export JAVA_HOME=${JAVA_HOME}
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes
@@ -31,6 +30,12 @@ export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 # data transfer protocol using non-privileged ports.
 #export JSVC_HOME=${JSVC_HOME}
 
+# you had better not set JAVA_HOME and HADOOP_CONF_DIR in this file.
+# it's better to set them in .bashrc or /etc/profile.
+# if you must want to do it, it's better to set variables without using
+# another environment variables like `${HADOOP_HOME}`.
+# export HADOOP_CONF_DIR=/usr/hadoop/etc/hadoop
+# export HDFS_CONF_DIR=/usr/hadoop/etc/hadoop
 export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop"}
 
 # Extra Java CLASSPATH elements.  Automatically insert capacity-scheduler.
