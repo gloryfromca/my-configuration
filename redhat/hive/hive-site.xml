@@ -1679,7 +1679,7 @@
   </property>
   <property>
     <name>hive.hwi.war.file</name>
-    <value>${env:HWI_WAR_FILE}</value>
+    <value>lib/hive-hwi-2.2.0.war</value>
     <description>This sets the path to the HWI war file, relative to ${HIVE_HOME}. </description>
   </property>
   <property>
