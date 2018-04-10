@@ -64,7 +64,7 @@ fi
 
 for i in /etc/profile.d/*.sh ; do
     if [ -r "$i" ]; then
-        if [ "${-#*i}" != "$-" ]; then
+        if [ "${-#*i}" != "$-" ]; then 
             . "$i"
         else
             . "$i" >/dev/null
@@ -74,16 +74,36 @@ done
 
 unset i
 unset -f pathmunge
-export TMOUT=600000
 
-# set java environment
+export TMOUT=600000
+export HISTTIMEFORMAT='%F %T '
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+
+# for java
 export JAVA_HOME=/usr/java/jdk1.8/
 export JRE_HOME=/usr/java/jdk1.8/jre
-export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
 export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 
-# set hadoop environment
+# for hadoop
 export HADOOP_HOME=/usr/hadoop
-export PATH=.:$PATH:$HADOOP_HOME/bin
 export HADOOP_CONF_DIR=/usr/hadoop/etc/hadoop
-export HDFS_CONF_DIR=/usr/hadoop/etc/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+
+# for spark
+export SPARK_HOME=/usr/spark
+export PYSPARK_PYTHON=python3
+export PATH=$PATH:$SPARK_HOME/bin
+
+# for hive
+export HIVE_HOME=/usr/hive
+export PATH=$PATH:$HIVE_HOME/bin
+
+# for derby
+export DERBY_HOME=/usr/derby
+export PATH=$PATH:$DERBY_HOME/bin
+export DERBY_OPTS="-Dderby.system.home=$DERBY_HOME/data"
+
+# for other
+export PATH=$PATH:/usr/lib/erlang/bin/:/opt/rabbitmq_server/sbin:/usr/local/bin
