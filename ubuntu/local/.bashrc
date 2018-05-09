@@ -117,28 +117,27 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias login116='ssh finance_datascience@192.168.1.116'
-alias login62='ssh datascience@192.180.70.62'
-alias web_test='source ~/web_test/bin/activate'
 
 #add PATH:1\added by Miniconda2 installer2\added by hadoop
 export PATH="/home/zhanghui/miniconda2/bin:$PATH"
 
+# for orcale
+export ORACLE_HOME=/opt/oracle/instantclient_11_2
+export LD_LIBRARY_PATH=$ORACLE_HOME
+
 # for java
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
-#for hadoop
+# for hadoop
 export HADOOP_HOME=/home/zhanghui/spark_hadoop/hadoop
 export PATH=/home/zhanghui/spark_hadoop/hadoop/bin:$PATH
 
-#for spark
+# for spark
 export SPARK_HOME=/home/zhanghui/spark_hadoop/spark
 export PATH=/home/zhanghui/spark_hadoop/spark/bin:$PATH
 
-#for pyspark 
+# for pyspark 
 export PYSPARK_PYTHON=python3
-#2 line below will make spark-submit fail, py.file submited will use
-#driver_python to drive. jupyter can't run py.file submited
 #export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 

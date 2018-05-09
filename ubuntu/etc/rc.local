@@ -11,5 +11,4 @@
 #
 # By default this script does nothing.
 nohup sslocal -c /etc/shadowsocks.json &
-alias vim='/usr/local/vim8/bin/vim'
 exit 0

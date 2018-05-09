@@ -1,1 +1,5 @@
 alias py35='source ~/py35/bin/activate'
+alias vim='/usr/local/vim8/bin/vim'
+alias login116='ssh finance_datascience@192.168.1.116'
+alias login62='ssh datascience@192.180.70.62'
+alias web_test='source ~/web_test/bin/activate'
