@@ -1,0 +1,70 @@
+{
+  "log": {
+   "error": "/var/log/v2ray/error.log",
+   "loglevel": "warning"
+  },
+  "inbound": {
+    "listen": "127.0.0.1",
+    "port": 1090,
+    "protocol": "socks",
+    "domainOverride": ["tls", "http"],
+    "settings": {
+	   "auth": "noauth",
+	   "udp": true
+    }
+  },
+  "outbound":{
+     "protocol": "vmess",
+     "settings": {
+       "vnext": [
+	         {
+                 "port": 7790,
+                 "address": "35.116.234.23",
+                 "users": [
+                     {
+                         "id": "c212622f-17d2-4g0d-970c-00f37bf5b061",
+                         "alterId": 22
+                     }
+                 ]
+	         }
+       ]
+     },
+    "streamSettings": {
+        "network": "tcp",
+        "tcpSettings": {
+                "header": {
+                        "type": "http",
+                        "response": {
+                                "version": "1.1",
+                                "status": "200",
+                                "reason": "OK",
+                                "headers": {
+                                        "Content-encoding": [
+                                                "gzip"
+                                        ],
+                                        "Content-Type": [
+                                                "text/html; charset=utf-8"
+                                        ],
+                                        "Cache-Control": [
+                                                "no-cache"
+                                        ],
+                                        "Vary": [
+                                                "Accept-Encoding"
+                                        ],
+                                        "X-Frame-Options": [
+                                                "deny"
+                                        ],
+                                        "X-XSS-Protection": [
+                                                "1; mode=block"
+                                        ],
+                                        "X-content-type-options": [
+                                                "nosniff"
+                                        ]
+                                }
+                        }
+                }
+        }
+    }
+
+  }
+}
