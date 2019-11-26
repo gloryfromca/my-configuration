@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:3'
+    network_mode: "host"
+    ports:
+      - '2181:2181'
+    volumes:
+      - '/home/zh/kafka_test/data:/bitnami'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: 'bitnami/kafka:2'
+    network_mode: "host"
+    ports:
+      - '9092:9092'
+    volumes:
+      - '/home/zh/kafka_test/data:/bitnami'
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=localhost:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper

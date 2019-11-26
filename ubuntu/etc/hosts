@@ -1,5 +1,12 @@
 127.0.0.1	localhost
 127.0.1.1	zhanghui-YangTianT6900c-00
+127.0.0.1 mysql
+127.0.0.1 redis
+127.0.0.1 gllue_hub
+127.0.0.1 gllue_sync
+127.0.0.1 weixin-web
+127.0.0.1 zookeeper
+127.0.0.1 kafka
 192.170.5.172   zh
 192.170.3.63    mjp
 192.170.2.250   hxt
